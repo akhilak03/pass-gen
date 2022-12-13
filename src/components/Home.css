@@ -1,0 +1,23 @@
+.Parent {
+    display: flex;
+    flex-direction: row;
+}
+
+.child1 {
+    width: 50%;
+    height: 100vh;
+    text-align: right;
+    color: lightcoral;
+    background-image: url('https://d2gg9evh47fn9z.cloudfront.net/800px_COLOURBOX6659585.jpg');
+    background-size:cover;
+    background-position:center;
+}
+
+.child2 {
+    width: 50%;
+    color: lightsalmon;
+    height: 100vh;
+    background-image: url('https://images.unsplash.com/photo-1514401362266-c2757d33b379?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8Z2FtZSUyMG1vYmlsZXxlbnwwfHwwfHw%3D&w=1000&q=80');
+    background-size:cover;
+    background-position:center;
+}
