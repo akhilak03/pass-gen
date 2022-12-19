@@ -11,6 +11,7 @@ function Paypal() {
     const navigate=useNavigate()
     //console.log(location)
     const cart=location.state.element;
+    
     const price=location.state.element.TicketCost
     const currentUser = useSelector((state) => state.user.userObj);
     useEffect(()=>{
@@ -31,13 +32,13 @@ function Paypal() {
         },
                 onApprove: async(data,actions)=>{
                     const order=await actions.order.capture();
-                    let ord_id=order.id;
-                    console.log(order,currentUser,cart)
                     
+                    console.log(order,currentUser,cart)
+                    cart.ord_id=order.id;
+                    console.log(cart)
                     axios.post("http://localhost:4000/confirm/order", {
-                        eventname:cart.username,
+                        eventname:cart,
                         userId: currentUser.username,
-                        paymentId: order.id,
                         paymentStatus: order.status,
                         payerDetails:{
                           name: order.payer.name,
@@ -47,7 +48,14 @@ function Paypal() {
                       })
                       .then(res=>{
                        console.log(res.data)
-                       navigate('/SuccessPage',{state:{cart,ord_id}})
+                       axios
+      .post("http://localhost:4000/admin/UpdateTicket", cart)
+      .then((response) => {
+        alert(response.data.message);
+      })
+      .catch((error) => alert("something went wrong!!"));
+                       
+                       navigate('/SuccessPage',{state:{cart}})
                         
                       })
                       .catch(error=>console.log(error))

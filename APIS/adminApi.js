@@ -9,32 +9,61 @@ const adminApp = exp.Router();
 adminApp.use(exp.json());
 //to extract body of request object
 
+var cloudinary=require("cloudinary").v2;
+const {CloudinaryStorage}=require("multer-storage-cloudinary");
+const multer=require("multer");
+cloudinary.config({
+  cloud_name:process.env.CLOUD_NAME,
+  api_key:process.env.API_KEY,
+  api_secret:process.env.API_SECRET,
+  secure:true,
+});
+//configure the storage
+const cloudinarystorage=new CloudinaryStorage({
+  cloudinary:cloudinary,
+  params:async(req,file)=>{
+    return{
+      folder:"passGenApp",//here all images are stored and the name can be anything
+      public_id:file.fieldname+"-"+Date.now(),
+    }
+  }
+})
+//configure the multer(middleware)
+var upload=multer({storage:cloudinarystorage});
 
 
 //creatr product using asyn and await
 adminApp.post(
   "/CreateProducts",
+  upload.single("photo"),
   expressAsyncHandler(async (request, response) => {
     // get productCollectionObject
 
     let EventObj = request.app.get("adminObj");
-    let EObj = request.body;
+    let EObj = JSON.parse(request.body.adminObj);
+    //let EObj = request.body;
 
     let checkEvent=await EventObj.findOne({
       username:EObj.username
     })
     if(checkEvent!=null){
       response.send({
-        message:"Eventname has already taken,please choose another username"
+        message:"Eventname has already taken,please choose an other username"
       })
     }else{
-      let result = await EventObj.insertOne(EObj);
-      if (result == undefined) {
-        response.send({ message: "no event has been created!" });
-      } else {
-        response.send({ message: 1});
+      
+        EObj.eventImg=request.file.path;
+        delete EObj.Photo;
+        let r=await EventObj.insertOne(EObj);
+        if(r==undefined){
+          response.send({message:"error while creating event"})
+        }
+        else{
+          response.send({ message: 1});
+        }
+        
       }
-    }
+    
   
     
     
@@ -118,6 +147,29 @@ adminApp.post(
        }}
     )
     console.log(result)
+    if(result===null){
+      response.send({message:"cannnot be updated"});
+    }
+    else{
+      response.send({message:"updated successfully",payload:result})
+    }
+
+  })
+)
+adminApp.post(
+  "/UpdateTicket",expressAsyncHandler(async(request,response)=>{
+    let EventObj=request.app.get("adminObj");
+    
+    let changes=request.body;
+    let tChange=parseInt(changes.Tlimit)-1;
+    
+    let result=await EventObj.updateOne({
+       $and:[{username:changes.username},{key:changes.key}]},{$set:{
+        Tlimit:tChange  
+
+       }}
+    )
+    
     if(result===null){
       response.send({message:"cannnot be updated"});
     }

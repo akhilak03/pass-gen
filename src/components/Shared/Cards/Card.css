@@ -1,0 +1,38 @@
+.body{
+    display: grid;
+    place-items: center;
+    /* height: 100vh; */
+    
+}
+
+.Card-container{
+    display: flex;
+    overflow: scroll;
+    padding: 125px;
+}
+
+.Card-container::-webkit-scrollbar {
+    display: none;
+  }
+
+.Card{
+    width: 20rem;
+    background: white;
+    border-radius: 1rem;
+    padding: 1rem;
+    box-shadow: 4px 4px 12px 1px;
+}
+
+.Card:hover {
+    transition: 0.2s;
+    transform: translateY(-1rem);
+}
+
+.Card:hover ~ .Card{
+    transition: 0.2s;
+    transform: translateX(4rem);
+}
+
+.Card:not(:first-child){
+    margin-left: -4rem;
+}

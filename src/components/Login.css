@@ -1,0 +1,39 @@
+.root {
+    padding-top: 10%;
+    height:100%;
+    background: linear-gradient(228deg, #ff8d88, #cec1f5, #fbfaff);
+    background-size: 600% 600%;
+    -webkit-animation: AnimationName 14s ease infinite;
+    animation: AnimationName 14s ease infinite;
+}
+
+@-webkit-keyframes AnimationName {
+    0%{background-position:72% 0%}
+    50%{background-position:29% 100%}
+    100%{background-position:72% 0%}
+}
+@keyframes AnimationName {
+    0%{background-position:72% 0%}
+    50%{background-position:29% 100%}
+    100%{background-position:72% 0%}
+}
+
+.root1 {
+    padding-top: 2%;
+    height:100%;
+    background: linear-gradient(228deg, #ff8d88, #cec1f5, #fbfaff);
+    background-size: 600% 600%;
+    -webkit-animation: AnimationName 14s ease infinite;
+    animation: AnimationName 14s ease infinite;
+}
+
+@-webkit-keyframes AnimationName {
+    0%{background-position:72% 0%}
+    50%{background-position:29% 100%}
+    100%{background-position:72% 0%}
+}
+@keyframes AnimationName {
+    0%{background-position:72% 0%}
+    50%{background-position:29% 100%}
+    100%{background-position:72% 0%}
+}

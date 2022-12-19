@@ -137,7 +137,7 @@ function Card() {
               <input type="text" className="cardetails-input" placeholder="" />
               <i className="fas fa-user"></i>
             </div>
-            <button className="cardetails-btn" onClick={()=>{navigate("/SuccessPage"),{state:{sam}}}}>Pay</button>
+            {/* <button className="cardetails-btn" onClick={()=>{navigate("/SuccessPage"),{state:{sam}}}}>Pay</button> */}
           </div>
         </div>
       </div>

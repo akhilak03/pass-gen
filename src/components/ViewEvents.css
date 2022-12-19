@@ -1,3 +1,42 @@
-.card{
-    width: 20rem;
+
+@import url('https://fonts.googleapis.com/css2?family=Prompt:ital,wght@1,700&display=swap');
+@media screen and (min-width: 651px) {
+  .title1 {
+    font-size: 3vw;
+  }
+}
+  
+@media screen and (max-width: 650px) {
+  .title1 {
+    font-size: 3vw;
+  }
+}
+
+.title1{
+    padding-top: 1vw;
+    background: -webkit-linear-gradient( #f69e52,#f51d0d, #a411ff, #007afc);
+    font-family: 'Prompt', sans-serif;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-attachment: fixed;
+}
+
+.root {
+    padding-top: 2%;
+    height:100%;
+    background: linear-gradient(228deg, #ff8d88, #cec1f5, #fbfaff);
+    background-size: 600% 600%;
+    -webkit-animation: AnimationName 14s ease infinite;
+    animation: AnimationName 14s ease infinite;
+}
+
+@-webkit-keyframes AnimationName {
+    0%{background-position:72% 0%}
+    50%{background-position:29% 100%}
+    100%{background-position:72% 0%}
+}
+@keyframes AnimationName {
+    0%{background-position:72% 0%}
+    50%{background-position:29% 100%}
+    100%{background-position:72% 0%}
 }

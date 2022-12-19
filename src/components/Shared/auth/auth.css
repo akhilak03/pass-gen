@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+
+.formContainer{
+    background-image: -webkit-linear-gradient( #ff938bc2,#ffab81);
+    margin: 0vh 22vw;
+    text-align:center;
+    border-radius: 15px;
+    display: flex;
+    flex-direction:column;
+    box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+
+}
+
+.formWrapper{
+    /* background-color: rgba(255, 255, 255, 0); */
+    display: flex;
+    flex-direction: column;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5vh;
+    padding: 5vh ;
+    border-radius: 10px;
+}
+
+input{
+    border: none;
+    border-radius: 5px;
+    width: 50vw;
+    height: 40px;   
+}
+
+::placeholder{
+    color: rgba(0, 0, 0, 0.272);
+    font-size:15px;
+    padding: 2px;
+}
+
+.formTitle{
+    padding: 2vw 0 0 0;
+    font-size: 30px;
+    background: -webkit-linear-gradient( #f6c252,#f51d0d, #a411ff, #007afc);
+    font-family: 'Prompt', sans-serif;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-attachment: fixed;
+}
+
+.button{
+    background-color:rgb(178, 83, 178);
+    border: none;
+    padding: 10px 20px;
+    font-weight:900;
+    color:rgb(255, 255, 255);
+    font-size:14px;
+    font-family: 'Raleway', sans-serif;
+    cursor: pointer;
+    border-radius: 30px;
+}
+
+input[type="file"] {
+    display: none;
+}
+.custom-file-upload {
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+}

@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Prompt:ital,wght@1,700&display=swap');
+@media screen and (min-width: 651px) {
+  .title {
+    font-size: 10vw;
+  }
+  .description{
+    font-size: 2vw;
+  }
+  .description2{
+    font-size: 2.5vw;
+  }
+}
+  
+@media screen and (max-width: 650px) {
+  .title {
+    font-size: 15vw;
+  }
+  .description{
+    font-size: 4vw;
+  }
+  .description2{
+    font-size: 5vw;
+  }
+}
+
+.title{
+    /* font-size: 10vw; */
+    padding-top: 9vw;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    background: -webkit-linear-gradient( #f69e52,#f51d0d, #a411ff, #007afc);
+    font-family: 'Prompt', sans-serif;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-attachment: fixed;
+}
+
+.description{
+    padding: 0 10vw;
+    
+    background: -webkit-linear-gradient( #f69e52,#f51d0d, #a411ff, #007afc);
+    font-weight: bolder;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-attachment: fixed;
+}
+
+.description2{
+    padding: 0 10vw;
+    background: -webkit-linear-gradient( #f69e52,#f51d0d,#f69e52,#f51d0d,#f69e52);
+    font-weight: bolder;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-attachment: fixed;
+}
